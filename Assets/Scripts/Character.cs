@@ -15,6 +15,13 @@ public class Character : MonoBehaviour
     void Update()
     {
         UpdateMovement();
+        UpdateAnimator();
+    }
+
+    void UpdateAnimator() {
+        var rb = GetComponent<Rigidbody2D>();
+        GetComponent<Animator>().SetFloat("SpeedX", rb.velocity.x);
+        GetComponent<Animator>().SetFloat("SpeedY", rb.velocity.y);
     }
 
     void UpdateMovement() {
